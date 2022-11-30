@@ -41,4 +41,13 @@ Rewrote the whereis function
     Is now a decent bit faster
     Has option for ignoring system files
     Has option to scan all drives, as opposed to just one
-    Now all options can be passed as sys arguments, folowing format: "catools whereis FILENAME DRIVE IGNORESYSFILES(y/n)"
+    Now all options can be passed as sys arguments, folowing format: "GPT whereis FILENAME DRIVE IGNORESYSFILES(y/n)"
+
+---
+
+v1.5 Patchnotes:
+
+Added ActivateWindows function
+	Activates Windows using default keys
+Made Help function more clear
+	Describes how to call diffrent functions from cmd
