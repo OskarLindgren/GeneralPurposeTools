@@ -1,0 +1,7 @@
+pywin32
+platform
+psutil
+gputil
+urllib3
+socket
+netifaces

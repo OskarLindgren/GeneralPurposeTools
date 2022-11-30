@@ -1,0 +1,44 @@
+V1.0 Patchnotes:
+
+We uhhh... made the program?
+
+----
+
+V1.1 Patchnotes:
+
+Fixed formating issues
+    Added % to percentage based values
+
+---
+
+V1.2 Patchnotes:
+
+Added a calculator function
+    Adds the ability to perform simple arithmatic such as 1+2 or 69**420/1337
+Made changes changes to sinfo
+    Fixed sinfo saying that you are using AMD64 regardles or architecture
+    Added GPU info (WIP)
+Made changes to the help command
+    Made more clear
+    Changed how the authors are worked internaly (making it easier to add more authors)
+
+---
+
+V1.3 Patchnotes: 
+
+Changed networking information
+    Added external  ipv4 adress
+    Changed "ip adress" to "internal ipv4 adress"
+Changed "Press enter to continue" to "Press enter to continue..."
+
+---
+
+V1.4 Patchnotes:
+
+Completly rewrote the program
+    Functions are now imports making for a much cleaner code
+Rewrote the whereis function
+    Is now a decent bit faster
+    Has option for ignoring system files
+    Has option to scan all drives, as opposed to just one
+    Now all options can be passed as sys arguments, folowing format: "catools whereis FILENAME DRIVE IGNORESYSFILES(y/n)"
