@@ -14,6 +14,7 @@ if [%a%] NEQ [] (
     echo.
     echo Name is: %a%
     pyinstaller --noconfirm --onefile --console --icon "NONE" --name %a% --add-data "X:/Programming/My GitHub projects/CatTools/functions;functions/" --add-data "X:/Programming/My GitHub projects/CatTools/main.ini;."  "./main.py"
+    timeout /t 5 /nobreak
     rmdir /s /q __pycache__
     rmdir /s /q build
     del /f / s /q %a%.spec
