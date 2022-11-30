@@ -48,12 +48,12 @@ def Start():
         except ValueError:
             Start()
         except KeyboardInterrupt:
-            exit()
+            sys.exit(0)
         
         
         if selection == 0:
             os.system("cls")
-            exit()
+            sys.exit(0)
         elif selection == 1:
             os.system("cls")
             help_func.Help(github, authors)
@@ -79,7 +79,7 @@ def Start():
             try:
                 input()
             except KeyboardInterrupt:
-                exit()
+                sys.exit(0)
             Start()
 
     elif any(sys.argv[1] == s for s in ["help", "h"]):
