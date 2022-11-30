@@ -7,6 +7,7 @@ from functions import sinfo
 from functions import calculator
 from functions import help_func
 from functions import version
+from functions import activate_windows
 
 # Locating config.ini
 config = configparser.ConfigParser()
@@ -32,6 +33,7 @@ options = """
 3) Calculator
 4) Sinfo
 5) WhereIs
+6) Activate Windows
 """  
 
 
@@ -74,6 +76,9 @@ def Start():
             os.system("cls")
             whereis.WhereIs()
             Start()
+        elif selection == 6:
+            os.system("cls")
+            activate_windows.Activate_windows()
         else:
             print("BRUH")
             try:
@@ -115,6 +120,9 @@ def Start():
             whereis.WhereIs()
         sys.argv = [] # for some reason running anything else will "flush" sys.argv, but this doesn't???
         Start()
+    elif any(sys.argv[1] == s for s in ["activatewindows", "actwin"]):
+        os.system("cls")
+        activate_windows.Activate_windows()
         
 
 # run
