@@ -1,5 +1,5 @@
 @echo off
-color 0c
+color 0e
 CHCP 65001
 echo ^◄ Made by Oskar Lindgren (https://github.com/OskarLindgren) ^►
 echo.
