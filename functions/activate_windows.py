@@ -15,10 +15,14 @@ def kill_popup():
         try: 
             os.system("taskkill /f /im wscript.exe >nul 2>&1")
         except:
-            print("couldn't kill popup")
+            print("Couldn't kill popup")
             pass
 
 def Activate_windows():
+    # Make sure the program is in admin mode
+    if ctypes.windll.shell32.IsUserAnAdmin() == False:
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+
     global stop_flag
     Thread(target=kill_popup).start()
 
@@ -85,13 +89,18 @@ def Activate_windows():
     print("\nActivating system...")
     os.system("slmgr /ato")
     print(f"Windows {release()} {edition()} Edition was activated!\n")
-    print("Press any enter to exit...")
     stop_flag = False # stops killing popups
-    input()
-    return
+
+    if input("Do you want to restart your pc now? Y/n\n").lower() == "n":
+        print("Press enter to exit...")
+        input()
+        return
+    else:
+        for seconds in range(5):
+            print(f"Restarting in {5-seconds} seconds!", end="\r")
+            time.sleep(1)
+        os.system("shutdown /r /t 1 -Force")
+
 
 if __name__ == '__main__':
-    if ctypes.windll.shell32.IsUserAnAdmin() == False:
-        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-
     Activate_windows()

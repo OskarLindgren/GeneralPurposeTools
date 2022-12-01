@@ -9,12 +9,11 @@ def Help(github=None, authors=None):
     print(f"whereis FILENAME DRIVE IGNORESYSFILES(y/n) - Finds path(s) to file searched for")
     print(f"calculator, calc - Opens a simple calculator")
     print(f"activate_windows, ActWin - Activates windows using black magic")
+    print("\nrun commands by selecting them or typing GPT <COMMAND> in cmd")
     if github == None:
         print("\nGithub & Authors not found")
     else:
         print(f"\n{github}\nMade by: {' & '.join(authors)}")
-
-    print("\n run commands by selecting them or typing GPT COMMAND\n")
     
     print("Press enter to continue...")
     input()
