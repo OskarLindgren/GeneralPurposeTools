@@ -57,3 +57,4 @@ Made Help function more clear
 v1.6 Patchnotes:
 
 Added a prompt for restarting in ActivateWindows function
+Fixed Minor mistakes
