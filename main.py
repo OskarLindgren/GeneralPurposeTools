@@ -8,6 +8,7 @@ from functions import calculator
 from functions import help_func
 from functions import version
 from functions import activate_windows
+from functions import check_latest_version
 
 # Locating config.ini
 config = configparser.ConfigParser()
@@ -36,11 +37,12 @@ options = """
 6) Activate Windows
 """  
 
-
 # main runtime     
 def Start():
+    check_latest_version.CheckVersion(version=version_number)
+
     os.system("cls")
-    if len(sys.argv) < 2: # the actual file counts as an argv, thus this means if 1 or more parameter
+    if len(sys.argv) < 2: # the actual file counts as an argv, thus this means if 1 or more parameters were passed
         os.system("title " + "General Purpose Tools")
         print("Select a tool:")
         print(options)
