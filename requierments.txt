@@ -5,3 +5,4 @@ gputil
 urllib3
 socket
 netifaces
+threading
