@@ -51,3 +51,9 @@ Added ActivateWindows function
 	Activates Windows using default keys
 Made Help function more clear
 	Describes how to call diffrent functions from cmd
+
+---
+
+v1.6 Patchnotes:
+
+Added a prompt for restarting in ActivateWindows function
