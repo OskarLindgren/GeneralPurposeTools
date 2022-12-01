@@ -58,3 +58,9 @@ v1.6 Patchnotes:
 
 Added a prompt for restarting in ActivateWindows function
 Fixed Minor mistakes
+
+--- v1.7 Patchnotes:
+
+Now checks if the program is on the latest release
+    Checks the latest tag on github
+    If you're not on the latest version, it will give you a link to download the latest release
