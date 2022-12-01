@@ -14,8 +14,6 @@ if [%a%] NEQ [] (
     echo.
     echo Name is: %a%
     pyinstaller --noconfirm --onefile --console --icon "NONE" --name %a% --add-data "./functions;functions/" --add-data "./main.ini;."  "./main.py"
-    timeout /t 5 /nobreak
-    rmdir /s /q __pycache__
     rmdir /s /q build
     del /f / s /q %a%.spec
     ren dist output
