@@ -59,8 +59,21 @@ v1.6 Patchnotes:
 Added a prompt for restarting in ActivateWindows function
 Fixed Minor mistakes
 
---- v1.7 Patchnotes:
+--- 
+
+v1.7 Patchnotes:
 
 Now checks if the program is on the latest release
     Checks the latest tag on github
     If you're not on the latest version, it will give you a link to download the latest release
+
+---
+
+v1.8 Patchnotes:
+
+Fixed ActivateWindows function
+    The restart function actually works now
+    It's now more clear that you have to press enter after an error message is given after trying to check the latest version
+    Added a check for if you already have a windows key
+Fixed a bunch of small bugs and comment errors
+
