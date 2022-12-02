@@ -2,7 +2,6 @@ import os
 import sys
 import ctypes
 import time
-import subprocess
 from platform import win32_edition as edition
 from platform import release
 from threading import Thread
@@ -25,16 +24,6 @@ def Activate_windows():
     # Make sure the program is in admin mode
     if ctypes.windll.shell32.IsUserAnAdmin() == False:
         ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-
-    # Check if windows is already activated
-    try:
-        wkey = subprocess.check_output(r"powershell Get-ItemPropertyValue -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform' -Name BackupProductKeyDefault", creationflags=0x08000000).decode().rstrip()
-        print("You already have windows activated!")
-        print("Press enter to exit...")
-        input()
-        return
-    except Exception: # this means there is no windowskey
-        pass
 
     global stop_flag
     Thread(target=kill_popup).start()
