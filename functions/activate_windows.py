@@ -2,6 +2,7 @@ import os
 import sys
 import ctypes
 import time
+import subprocess
 from platform import win32_edition as edition
 from platform import release
 from threading import Thread
@@ -19,9 +20,21 @@ def kill_popup():
             pass
 
 def Activate_windows():
+    os.system("title GPT - Activate Windows")
+
     # Make sure the program is in admin mode
     if ctypes.windll.shell32.IsUserAnAdmin() == False:
         ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+
+    # Check if windows is already activated
+    try:
+        wkey = subprocess.check_output(r"powershell Get-ItemPropertyValue -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform' -Name BackupProductKeyDefault", creationflags=0x08000000).decode().rstrip()
+        print("You already have windows activated!")
+        print("Press enter to exit...")
+        input()
+        return
+    except Exception: # this means there is no windowskey
+        pass
 
     global stop_flag
     Thread(target=kill_popup).start()
@@ -99,7 +112,7 @@ def Activate_windows():
         for seconds in range(5):
             print(f"Restarting in {5-seconds} seconds!", end="\r")
             time.sleep(1)
-        os.system("shutdown /r /t 1 -Force")
+        os.system("shutdown /r /t 1")
 
 
 if __name__ == '__main__':

@@ -6,13 +6,13 @@ def CheckVersion(version=None):
         urllib.request.urlopen(url='https://www.google.com/', timeout=1)
     except Exception:
         print("Unable to check for latest version, check your internet connection!")
-        input()
+        input("Enter to continue...")
         return
 
     ### Check that version was passed
     if version == None: 
         print("Version not found")
-        input()
+        input("Enter to continue...")
         return
     
     ### Check what the latest version on github
@@ -29,7 +29,7 @@ def CheckVersion(version=None):
         print("Your not on the latest version!")
         print("You can get the latest version on github:")
         print("https://github.com/OskarLindgren/GeneralPurposeTools/releases/latest")
-        input()
+        input("Enter to continue...")
         return
 
     ### If everything is fine, just return nothing

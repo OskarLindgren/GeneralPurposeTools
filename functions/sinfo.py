@@ -8,8 +8,7 @@ import socket
 import netifaces
 
 def Sinfo():
-    os.system("title " + "CatTools - System Info")
-    print("Please wait... Gathering system information.")
+    os.system("title " + "GPT - System Info")
     os.system("cls")
         
     # OS

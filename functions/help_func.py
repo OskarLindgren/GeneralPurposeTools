@@ -1,7 +1,7 @@
 import os
 
 def Help(github=None, authors=None):
-    os.system("title " + "CatTools - Help")
+    os.system("title " + "GPT - Help")
     print(f"Commands")
     print(f"help, h - Displays commands and options")
     print(f"version, v - Displays program version")

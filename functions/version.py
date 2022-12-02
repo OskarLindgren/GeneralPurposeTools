@@ -1,7 +1,7 @@
 import os
 
 def Version(version_number=None):
-    os.system("title " + "CatTools - Version")
+    os.system("title " + "GPT - Version")
     if version_number == None:
         print("Version not found")
     else:

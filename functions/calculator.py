@@ -1,7 +1,7 @@
 import os
 
 def Calculator():
-    os.system("title " + "CatTools - Calculator")
+    os.system("title " + "GPT - Calculator")
     print("Press q to exit")
     print("[Uses python syntax]")
     while True:

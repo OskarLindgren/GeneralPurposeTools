@@ -2,7 +2,7 @@ import win32api
 import os
 
 def WhereIs(lookup_name=None, drive=None, ignore_system_files=None):
-    os.system("title " + "CatTools - WhereIs")
+    os.system("title " + "GPT - WhereIs")
     banned_dirs = ["$recycle.bin", "$win", "windows"]
 
     ### OPTIONS
