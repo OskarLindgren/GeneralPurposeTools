@@ -10,7 +10,7 @@ from functions import version
 from functions import activate_windows
 from functions import check_latest_version
 
-# Locating config.ini
+# Locating main.ini
 config = configparser.ConfigParser()
 config_file = f'{os.path.dirname(os.path.abspath(__file__))}\main.ini'
 config.read(config_file)
@@ -19,7 +19,7 @@ MAIN = config['MAIN']
 
 version_number = config.get('MAIN', 'version_number')
 github = config.get('MAIN', 'github')
-authors = config.get('MAIN', 'authors').split(",")
+authors = config.get('MAIN', 'authors').split(", ")
 
 
 os.system("title " + "General Purpose Tools") # sets title of cmd window
