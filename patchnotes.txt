@@ -74,6 +74,6 @@ v1.8 Patchnotes:
 Fixed ActivateWindows function
     The restart function actually works now
     It's now more clear that you have to press enter after an error message is given after trying to check the latest version
-    Added a check for if you already have a windows key
+    ~Added a check for if you already have a windows key~
 Fixed a bunch of small bugs and comment errors
 
