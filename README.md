@@ -4,6 +4,7 @@
 Love & Code by Oskar Lindgren
 
 ## Star This Repository If You Liked It!
+Make sure you add your isntall location to `path` if you want to run it as a command in cmd!
 
 ## Installation 
 
