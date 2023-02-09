@@ -9,6 +9,8 @@ from functions import help_func
 from functions import version
 from functions import activate_windows
 from functions import check_latest_version
+from functions import speed_test
+from functions import port_scanner
 
 # Locating main.ini
 config = configparser.ConfigParser()
@@ -35,11 +37,13 @@ options = """
 4) Sinfo
 5) WhereIs
 6) Activate Windows
+7) Speed Test
+8) Port Scanner
 """  
 
 # main runtime     
 def Start():
-    check_latest_version.CheckVersion(version=version_number)
+    #check_latest_version.CheckVersion(version=version_number)
 
     os.system("cls")
     if len(sys.argv) < 2: # the actual file counts as an argv, thus this means if 1 or more parameters were passed
@@ -81,6 +85,12 @@ def Start():
         elif selection == 6:
             os.system("cls")
             activate_windows.Activate_windows()
+        elif selection == 7:
+            os.system("cls")
+            speed_test.Test_speed()
+        elif selection == 8:
+            os.system("cls")
+            port_scanner.portScanner()
         else:
             print("BRUH")
             try:
@@ -120,11 +130,30 @@ def Start():
             whereis.WhereIs(sys.argv[2])
         else:
             whereis.WhereIs()
-        sys.argv = [] # for some reason running anything else will "flush" sys.argv, but this doesn't???
+        sys.argv = [] # for some reason running anything without params will "flush" sys.argv but not with options???
         Start()
     elif any(sys.argv[1] == s for s in ["activatewindows", "actwin"]):
         os.system("cls")
         activate_windows.Activate_windows()
+    elif any(sys.argv[1] == s for s in ["speed_test", "test_speed", "speed"]):
+        os.system("cls")
+        if len(sys.argv) == 3:
+            speed_test.Test_speed(sys.argv[2], sys.argv[3])
+        elif len(sys.argv) == 2:
+            speed_test.Test_speed(sys.argv[2])
+        else:
+            speed_test.Test_speed()
+        sys.argv = [] # for some reason running anything without params will "flush" sys.argv but not with options???
+    elif any(sys.argv[1] == s for s in ["port_scanner", "scan_port", "pscan"]):
+        os.system("cls")
+        if len(sys.argv) == 3:
+            port_scanner.portScanner(sys.argv[2], sys.argv[3])
+        elif len(sys.argv) == 2:
+            port_scanner.portScanner(sys.argv[2])
+        else:
+            port_scanner.portScanner()
+        sys.argv = [] # for some reason running anything without params will "flush" sys.argv but not with options???
+        Start()
         
 
 # run

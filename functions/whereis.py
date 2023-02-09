@@ -83,7 +83,6 @@ def WhereIs(lookup_name=None, drive=None, ignore_system_files=None):
             # this should never be called unless there is data manipulation
             print("You didn't input a drive correctly!")
             input("Enter to return...")
-            input()
             return
 
         print(f"Searching... {drive.title()}:\\", end="\r")
