@@ -4,7 +4,7 @@
 Love & Code by Oskar Lindgren
 
 ## Star This Repository If You Liked It!
-Make sure you add your isntall location to `path` if you want to run it as a command in cmd!
+Make sure you add your install location to [path](https://linuxhint.com/add-directory-to-path-environment-variables-windows/) if you want to run it as a command in cmd!
 
 ## Installation 
 
