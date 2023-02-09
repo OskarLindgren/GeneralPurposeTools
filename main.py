@@ -146,9 +146,9 @@ def Start():
         sys.argv = [] # for some reason running anything without params will "flush" sys.argv but not with options???
     elif any(sys.argv[1] == s for s in ["port_scanner", "scan_port", "pscan"]):
         os.system("cls")
-        if len(sys.argv) == 3:
+        if len(sys.argv) == 4:
             port_scanner.portScanner(sys.argv[2], sys.argv[3])
-        elif len(sys.argv) == 2:
+        elif len(sys.argv) == 3:
             port_scanner.portScanner(sys.argv[2])
         else:
             port_scanner.portScanner()
