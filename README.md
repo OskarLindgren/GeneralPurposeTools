@@ -20,5 +20,3 @@ I am not responsible for anything done with this program. You are free to edit t
 
 V 1.0 - 1.2 can be found at [MageSneaky's github](https://github.com/MageSneaky/CatTools)
 V1.3 is lost to time :(
-
-CLOSED SOURCE :(
