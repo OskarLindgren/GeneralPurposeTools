@@ -80,7 +80,8 @@
 -----
 
 # v1.9 Patchnotes:
-Added speed tester for drives *(WIP)*
+
+### Added speed tester for drives *(WIP)*
 > Can be ran on any drives recognized by Windows
 > Can check all drives or specified drive
 > (Read speed is currently broken)
@@ -92,7 +93,8 @@ Added speed tester for drives *(WIP)*
 -----
 
 # v1.10 Patchnotes:
-Fixed speedtest
+
+### Fixed speedtest
 > Added an `s` to the time taken for writing (it was already present on read speeds)
 > Fixed speeds to actually be correct (i think?)
 ### Made timeout for port scanner dynamic
@@ -107,3 +109,5 @@ Fixed speedtest
 > All modules are now automatically installed
 ### Fixed a bug where GPT would close itself after running a tool rather than going back to the main menu
 ### Rewrote the patchnotes and made them a `.md` file
+
+
