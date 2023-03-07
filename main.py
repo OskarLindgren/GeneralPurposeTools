@@ -11,6 +11,7 @@ from functions import activate_windows
 from functions import check_latest_version
 from functions import speed_test
 from functions import port_scanner
+from functions import display_dir
 
 # Locating main.ini
 config = configparser.ConfigParser()
@@ -39,11 +40,12 @@ options = """
 6) Activate Windows
 7) Speed Test
 8) Port Scanner
+9) Show Folder Hierarchy
 """  
 
 # main runtime     
 def Start():
-    #check_latest_version.CheckVersion(version=version_number)
+    check_latest_version.CheckVersion(version=version_number)
 
     os.system("cls")
     if len(sys.argv) < 2: # the actual file counts as an argv, thus this means if 1 or more parameters were passed
@@ -91,6 +93,9 @@ def Start():
         elif selection == 8:
             os.system("cls")
             port_scanner.portScanner()
+        elif selection == 9:
+            os.system("cls")
+            display_dir.displayDir()
         else:
             print("BRUH")
             try:
@@ -130,7 +135,7 @@ def Start():
             whereis.WhereIs(sys.argv[2])
         else:
             whereis.WhereIs()
-        sys.argv = [] # for some reason running anything without params will "flush" sys.argv but not with options???
+        sys.argv = [] # clear sys.argv
         Start()
     elif any(sys.argv[1] == s for s in ["activatewindows", "actwin"]):
         os.system("cls")
@@ -143,7 +148,7 @@ def Start():
             speed_test.Test_speed(sys.argv[2])
         else:
             speed_test.Test_speed()
-        sys.argv = [] # for some reason running anything without params will "flush" sys.argv but not with options???
+        sys.argv = [] # clear sys.argv
     elif any(sys.argv[1] == s for s in ["port_scanner", "scan_port", "pscan"]):
         os.system("cls")
         if len(sys.argv) == 4:
@@ -152,8 +157,20 @@ def Start():
             port_scanner.portScanner(sys.argv[2])
         else:
             port_scanner.portScanner()
-        sys.argv = [] # for some reason running anything without params will "flush" sys.argv but not with options???
-        Start()
+        sys.argv = [] # clear sys.argv
+    elif any(sys.argv[1] == s for s in ["display_dir", "print_dir", "ddir", "pdir"]):
+        os.system("cls")
+        if len(sys.argv) == 5:
+            display_dir.displayDir(sys.argv[2], sys.argv[3], sys.argv[4])
+        elif len(sys.argv) == 4:
+            display_dir.displayDir(sys.argv[2], sys.argv[3])
+        elif len(sys.argv) == 3:
+            display_dir.displayDir(sys.argv[2])
+        else:
+            display_dir.displayDir()
+        sys.argv = [] # clear sys.argv
+
+    Start()
         
 
 # run

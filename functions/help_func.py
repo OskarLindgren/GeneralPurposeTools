@@ -10,9 +10,10 @@ def Help(github=None, authors=None):
     print(f"calculator, calc - Opens a simple calculator")
     print(f"activate_windows, ActWin - Activates windows using black magic")
     print(f"speed_test, test_speed, speed DRIVE SIZE(MB)- Tests the speed of a drive")
-    print(f"port_scanner, scan_port, pscan IP PORT( single | range | * | / ) - Scan open ports on a given ip adress")
+    print(f"port_scanner, scan_port, pscan IP PORT ( single | range | * | / ) - Scan open ports on a given ip adress")
+    print(f"display_dir, print_dir, ddir, pdir DIR MODE ( folders or 1 | files or 2 | show_hidden or 3) OUTPUTDIR - Make a .txt with a formated view of the directory")
 
-    print("\nrun commands by selecting them or typing GPT <COMMAND> in cmd")
+    print("\nrun commands by selecting them or typing GPT <COMMAND> <ARGS> in cmd")
     if github == None:
         print("\nGithub & Authors not found")
     else:

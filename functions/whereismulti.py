@@ -1,5 +1,8 @@
 import win32api
 import os
+import queue
+import threading
+import psutil
 
 def WhereIs(lookup_name=None, drive=None, ignore_system_files=None):
     os.system("title " + "GPT - WhereIs")
@@ -72,6 +75,23 @@ def WhereIs(lookup_name=None, drive=None, ignore_system_files=None):
     
 
     ### ACTUALLY SEARCH
+
+    ## set up threads
+
+    q = queue.Queue()
+    q.put(None)
+
+    class searcher(threading.Thread):
+        def __init__(self, threadID):
+            threading.Thread.__init__(self)
+            self.threadID = threadID
+
+        def run():
+            location = str(q.get())
+            
+
+
+    threads = psutil.cpu_count(True)
 
     # do this for all selected drives
     for drive in drives:

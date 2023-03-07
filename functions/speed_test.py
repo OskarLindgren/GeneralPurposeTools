@@ -4,7 +4,7 @@ import time
 
 def Test_speed(drive=None):
     os.system("title " + "GPT - Speed Test")
-    size = 64 # MB
+    size = 128 # MB
 
     ### OPTIONS
 
@@ -44,60 +44,71 @@ def Test_speed(drive=None):
         else:
             drives = win32api.GetLogicalDriveStrings().split('\000')[:-1]
 
+    os.system('cls')
+    print("It is worth noting that times may be a bit off, especially read speeds. But it gives you a rough idea")
+    for drive in drives:
+        # bruh
+        if ":\\" not in drive:
+            drive += ":\\"
 
-    # if the drive is "c", it wont allow you to place a file in root
-    if "C" in drive.title():
-        location = f"{drive.title()}:\\Temp\\temp_speed_test.txt"
-    else:
-        location = f"{drive.title()}:\\temp_speed_test.txt"
+        # if the drive is "c", it wont allow you to place a file in root
+        if "C" in drive.title():
+            location = f"{drive.title()}Temp\\temp_speed_test.txt"
+        else:
+            location = f"{drive.title()}temp_speed_test.txt"
 
-    # Write
+        # Write
+        print("\nTesting", drive.title(), "\n")
+        start_time = time.time()
+        with open(location, "w") as write:
+            try:
+                write.write("0" * 1024 * 1024 * size) # We want size in MB
+                write.close()
+                finish_time = time.time()
 
-    start_time = time.time()
-    with open (location, "w") as f:
-        try:
-            f.write("0" * 1024 * 1024 * size) # We want size in MB
-            f.flush()
-            f.close()
-            finish_time = time.time()
+            except Exception as e:
+                # try removing the file if it was created
+                try: write.close(), os.remove(location)
+                except OSError: pass
 
-        except Exception as e:
-            # try removing the file if it was created
-            try: f.close(), os.remove(location)
-            except OSError: pass
+                print("Something went wrong...\n" + str(e))
+                input()
+                return
+        time_taken = round(finish_time-start_time, 1)
+        print(f"Wrote {size}MB in {time_taken}s ({round(size/time_taken, 2)}MB/s)")
 
-            print(f"Something went wrong...\n{e}")
-            input()
-            return
-    time_taken = round(finish_time-start_time, 1)
-    print(f"Wrote {size}MB in {time_taken} ({round(size/time_taken, 2)}MB/s)")
+        # reset times
+        start_time, finish_time = None, None
 
-    # reset times
-    start_time, finish_time = None, None
+        # clear file variable/cache
+        del(write)
 
-    # Read
+        # Read
 
-    start_time = time.time()
-    with open (location, "r") as f:
-        try:
-            f.read()
-            f.close()
-            finish_time = time.time()
+        start_time = time.time()
+        with open (location, "r") as read:
+            try:
+                data = read.read()
+                # performe some computations with the data to make sure that python is reading it properly
+                length = len(data)
+                data = str(length) # this in and of itself takes <1ms on most modern systems.
+                read.close()
+                finish_time = time.time()
 
-        except Exception as e:
-            # try removing the file
-            try: f.close(), os.remove(location)
-            except OSError: pass
+            except Exception as e:
+                # try removing the file
+                try: read.close(), os.remove(location)
+                except OSError: pass
 
-            print(f"Something went wrong...\n{e}")
-            input()
-            return
-    time_taken = finish_time-start_time
-    print(f"Read {round(size, 1)}MB in {time_taken}s ({round(size/time_taken, 2)}MB/s)")
-    
-    # Clean
-    try: os.remove(location)
-    except OSError: pass
+                print(f"Something went wrong...\n{e}")
+                input()
+                return
+        time_taken = finish_time-start_time
+        print(f"Read {int(size)}MB in {round(time_taken, 1)}s ({round(size/time_taken, 2)}MB/s)")
+
+        # Clean up
+        try: os.remove(location)
+        except OSError: pass
 
     return
 

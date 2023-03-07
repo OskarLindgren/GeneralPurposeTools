@@ -91,8 +91,8 @@ def portScanner(ip: str=None, ports:str=None) -> None:
     # make sure the ip is accesible
     print("Checking IP (please wait up to a second)")
     try:
-        ping = ping3.ping(ip, timeout=1)
-        if type(ping) != float:
+        ping_time = ping3.ping(ip, timeout=1)
+        if type(ping_time) != float:
             print("The ip is down or is not responding to pings (or is just too damn slow)")
             input("...")
             return
@@ -100,15 +100,18 @@ def portScanner(ip: str=None, ports:str=None) -> None:
         print("General IP failure")
         input("...")
         return
+    
 
-    print(f"{ip} responded in ~{round(ping*1000, 1)} ms\n┌──────────")
+    print(f"{ip} responded in ~{round(ping_time*1000, 1)} ms\n┌──────────")
 
     ### START CHECKING PORTS
+
+    timeout = ping_time * 2
 
     ## check singular port
     if type(ports) == int:
         with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
-            sock.settimeout(2)
+            sock.settimeout(timeout)
             if sock.connect_ex((ip, ports)) == 0:
                 print(f"├ port {ports} is open")
             else:
@@ -143,7 +146,7 @@ def portScanner(ip: str=None, ports:str=None) -> None:
 
         print(f"| {port}", end="\r")
         with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as sock:
-            sock.settimeout(1)
+            sock.settimeout(timeout)
             startTime = time.time()
             if sock.connect_ex((ip, port)) == 0:
                 ping = time.time() - startTime
