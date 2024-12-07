@@ -16,7 +16,7 @@ Run commands by selecting them in the program or typing GPT <COMMAND> <ARGS> in 
 |                                  `whereis` | FILENAME DRIVE IGNORESYSFILES *( y \| n )*                             | Finds path(s) to file searched for                |
 |                       `calculator`, `calc` |                                                                        | Opens a simple calculator                         |
 |               `activate_windows`, `ActWin` |                                                                        | Activates windows using black magic               |
-|        `speed_test`, `test_speed`, `speed` | DRIVE SIZE(MB)                                                         | Tests the speed of a drive                        |
+|        `speed_test`, `test_speed`, `speed` | DRIVE SIZE(MB)                                                         | Tests the speed of a drive (this is of questinable accuracy!)|
 |       `port_scanner`, `scan_port`, `pscan` | IP PORT *( single \| range \| * \| / )*                                | Scan open ports on a given ip adress              |
 | `display_dir`, `print_dir`, `ddir`, `pdir` | DIR MODE *( folders or 1 \| files or 2 \| show_hidden or 3)* OUTPUTDIR | Make a .txt with a formated view of the directory |
 
